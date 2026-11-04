@@ -1,0 +1,5 @@
+# Matches the provisioned acceptance runtime; no Isaac dependency.
+cryptography==46.0.7
+cbor2==6.1.5
+pycose==1.1.0
+pytest==9.1.1

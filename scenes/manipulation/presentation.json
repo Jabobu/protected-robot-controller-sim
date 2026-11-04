@@ -1,0 +1,18 @@
+{
+  "camera": {
+    "eye_m": [
+      0.95,
+      0.7,
+      0.72
+    ],
+    "target_m": [
+      0.25,
+      0,
+      0.26
+    ],
+    "focal_length_mm": 35
+  },
+  "start_square_half_extent_m": 0.03,
+  "outline_width_m": 0.003,
+  "description": "Visual-only paint and camera; physical profile, destinations and trajectories remain frozen."
+}

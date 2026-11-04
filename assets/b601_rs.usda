@@ -1,0 +1,87 @@
+#usda 1.0
+(
+    defaultPrim = "B601"
+    metersPerUnit = 1
+    kilogramsPerUnit = 1
+    upAxis = "Z"
+)
+
+# Trusted setup overlay; upstream geometry/inertias are unchanged.
+# Repair the upstream mimic API instance token, not the physical joint axes.
+def Xform "B601" (
+    prepend references = @./vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/RS-rebot-dev-arm.usda@
+)
+{
+    over "Physics"
+    {
+        over "root_joint"
+        {
+            rel physics:body0 = []  # Explicit world anchor.
+        }
+        over "joint1"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 36
+            float drive:angular:physics:stiffness = 500
+            float drive:angular:physics:damping = 60
+        }
+        over "joint2"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 36
+            float drive:angular:physics:stiffness = 1500
+            float drive:angular:physics:damping = 96
+        }
+        over "joint3"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 36
+            float drive:angular:physics:stiffness = 1000
+            float drive:angular:physics:damping = 76
+        }
+        over "joint4"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 14
+            float drive:angular:physics:stiffness = 150
+            float drive:angular:physics:damping = 18
+        }
+        over "joint5"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 14
+            float drive:angular:physics:stiffness = 80
+            float drive:angular:physics:damping = 10
+        }
+        over "joint6"
+        {
+            float physxJoint:maxJointVelocity = 28.64788976
+            float drive:angular:physics:maxForce = 14
+            float drive:angular:physics:stiffness = 50
+            float drive:angular:physics:damping = 7
+        }
+        over "joint_left"
+        {
+            float physxJoint:maxJointVelocity = 0.04
+            float drive:linear:physics:maxForce = 12
+            float drive:linear:physics:stiffness = 1200
+            float drive:linear:physics:damping = 30
+        }
+        over "joint_right" (
+            delete apiSchemas = ["PhysxMimicJointAPI:Z"]
+            prepend apiSchemas = ["PhysxMimicJointAPI:rotX"]
+        )
+        {
+            # PhysX uses rotX/rotY/rotZ instance tokens even for a prismatic
+            # single-DOF joint. physics:axis remains Z on both fingers.
+            rel physxMimicJoint:rotX:referenceJoint = </B601/Physics/joint_left>
+            uniform token physxMimicJoint:rotX:referenceJointAxis = "rotX"
+            float physxMimicJoint:rotX:gearing = -1
+            float physxMimicJoint:rotX:offset = 0
+            float physxJoint:maxJointVelocity = 0.04
+            float drive:linear:physics:maxForce = 0
+            float drive:linear:physics:stiffness = 0
+            float drive:linear:physics:damping = 0
+        }
+    }
+}

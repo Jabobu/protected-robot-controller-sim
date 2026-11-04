@@ -1,0 +1,509 @@
+{
+  "schema_version": 1,
+  "id": "B601-MANIPULATION-CALIBRATION-1",
+  "stage": "S6-05",
+  "status": "FROZEN_CALIBRATED_PROFILE",
+  "campaign_frozen": true,
+  "baseline_revision": "303e9272f9828f4f835bbb29212912930212d187",
+  "seed": 60101,
+  "randomization": "none; seed retained; cryptographic IDs remain OS-random",
+  "runtime_image": "sha256:40006a3c6f14e0d796fb1fe388095e6ee83057b99b4c89dcbb5fee90df36f557",
+  "runtime": {
+    "isaac_sim": "6.0.0",
+    "python": "3.12.13",
+    "physics_engine": "PhysX",
+    "device": "cpu",
+    "physics_dt_seconds": 0.008333333333333333,
+    "container_image_digest": "sha256:40006a3c6f14e0d796fb1fe388095e6ee83057b99b4c89dcbb5fee90df36f557",
+    "nvidia_base_image_digest": "sha256:68735a60b6c15c85e0dd0098570c6d2cc79e928f2d068ce2790aa43284ac165d"
+  },
+  "model": {
+    "manifest": "artifacts/model_manifest.json",
+    "sha256": "a60229daf5abb39f147046d736b103752c592f7f29792405bbd5fe8b29605193",
+    "entrypoint": "assets/b601_rs.usda",
+    "source": {
+      "repository": "https://github.com/Seeed-Projects/reBot-Isaacsim",
+      "commit": "158f87317fcaa35a7d1706ef364e324d3565939e",
+      "asset_path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/RS-rebot-dev-arm.usda",
+      "license": "MIT",
+      "license_path": "assets/vendor-cache/reBot-Isaacsim/LICENSE",
+      "notice_copy": "assets/notices/Seeed-reBot-Isaacsim-LICENSE"
+    },
+    "root_pose": {
+      "position_m": [
+        0,
+        0,
+        0
+      ],
+      "orientation_wxyz": [
+        1,
+        0,
+        0,
+        0
+      ]
+    }
+  },
+  "mapping": {
+    "actuators": [
+      "joint1",
+      "joint2",
+      "joint3",
+      "joint4",
+      "joint5",
+      "joint6",
+      "gripper"
+    ],
+    "outputs": [
+      "joint1",
+      "joint2",
+      "joint3",
+      "joint4",
+      "joint5",
+      "joint6",
+      "joint_left",
+      "joint_right"
+    ],
+    "units": [
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "um",
+      "um"
+    ],
+    "gripper_coupling": {
+      "driver": "joint_left",
+      "follower": "joint_right",
+      "schema": "PhysxMimicJointAPI:rotX",
+      "gearing": -1.0,
+      "offset": 0.0,
+      "reference_axis": "rotX",
+      "equation": "q_right + gearing * q_left + offset = 0",
+      "independent_actuators": 1,
+      "observed_outputs": 2,
+      "follower_drive_enabled": false,
+      "command_unit": "m",
+      "command_meaning": "one finger outward travel; total opening change is twice this value",
+      "authoring_note": "S2 repairs the upstream invalid Z mimic API instance to rotX; both prismatic physics:axis values remain Z. Single-DOF mimic axes are inferred by PhysX."
+    },
+    "position_limits": [
+      [
+        -2.7999998995257984,
+        2.7999998995257984
+      ],
+      [
+        -3.140000083257926,
+        0.0
+      ],
+      [
+        -3.140000083257926,
+        0.0
+      ],
+      [
+        -1.7900000508548826,
+        1.6899999498190612
+      ],
+      [
+        -1.570000041628963,
+        1.570000041628963
+      ],
+      [
+        -3.140000083257926,
+        3.140000083257926
+      ],
+      [
+        0.0,
+        0.05000000074505806
+      ],
+      [
+        0.0,
+        0.05000000074505806
+      ]
+    ],
+    "velocity_limits": [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.04
+    ],
+    "effort_limits": [
+      36.0,
+      36.0,
+      36.0,
+      14.0,
+      14.0,
+      14.0,
+      12.0
+    ]
+  },
+  "physics": {
+    "dt_seconds": 0.008333333333333333,
+    "gravity_m_s2": -9.81,
+    "solver": "TGS",
+    "device": "cpu",
+    "object_solver_position_iterations": 16,
+    "object_solver_velocity_iterations": 4,
+    "object_sleep_threshold": 0.0,
+    "object_contact_offset_m": 0.001,
+    "object_rest_offset_m": 0.0,
+    "object_linear_damping": 0.05,
+    "object_angular_damping": 0.05,
+    "grasp_material": {
+      "static_friction": 1.2,
+      "dynamic_friction": 1.0,
+      "restitution": 0.0
+    },
+    "table_material": {
+      "static_friction": 0.6,
+      "dynamic_friction": 0.5,
+      "restitution": 0.0
+    },
+    "robot_geometry_and_drive_limits": "unchanged; stage-only physics-material bindings on both finger bodies",
+    "self_collision_enabled": false
+  },
+  "work_surface": {
+    "prim": "/Manipulation/WorkSurface",
+    "center_m": [
+      0.295,
+      0,
+      0.02
+    ],
+    "dimensions_m": [
+      0.35,
+      0.64,
+      0.04
+    ],
+    "top_z_m": 0.04,
+    "fixed": true
+  },
+  "source_area": {
+    "center_xy_m": [
+      0.297,
+      0
+    ],
+    "half_extents_xy_m": [
+      0.043,
+      0.085
+    ]
+  },
+  "regions": {
+    "A": {
+      "center_xy_m": [
+        0.25622,
+        -0.15713
+      ],
+      "half_extents_xy_m": [
+        0.045,
+        0.045
+      ]
+    },
+    "B": {
+      "center_xy_m": [
+        0.25519,
+        0.15684
+      ],
+      "half_extents_xy_m": [
+        0.045,
+        0.045
+      ]
+    }
+  },
+  "objects": [
+    {
+      "id": "R1",
+      "prim": "/Manipulation/Objects/R1",
+      "shape": "cuboid",
+      "dimensions_m": [
+        0.024,
+        0.028,
+        0.04
+      ],
+      "mass_kg": 0.01,
+      "position_m": [
+        0.29677489,
+        -0.04489405,
+        0.0605
+      ],
+      "orientation_wxyz": [
+        0.9971888181122075,
+        0,
+        0,
+        -0.07492970727274234
+      ],
+      "color_rgb": [
+        0.8,
+        0.06,
+        0.04
+      ]
+    },
+    {
+      "id": "B1",
+      "prim": "/Manipulation/Objects/B1",
+      "shape": "cuboid",
+      "dimensions_m": [
+        0.024,
+        0.028,
+        0.04
+      ],
+      "mass_kg": 0.01,
+      "position_m": [
+        0.29648004,
+        0.04487129,
+        0.0605
+      ],
+      "orientation_wxyz": [
+        0.9971888181122075,
+        0,
+        0,
+        0.07492970727274234
+      ],
+      "color_rgb": [
+        0.04,
+        0.12,
+        0.8
+      ]
+    }
+  ],
+  "empty_grasp_setup": {
+    "object_id": "R1",
+    "position_m": [
+      0.42,
+      -0.25,
+      0.0605
+    ],
+    "timing": "trusted construction before first reset; unchanged planned trajectory"
+  },
+  "camera": {
+    "prim": "/Manipulation/ObservationCamera",
+    "optional": true,
+    "eye_m": [
+      1.4,
+      1.6,
+      1.25
+    ],
+    "target_m": [
+      0.15,
+      0,
+      0.35
+    ],
+    "up": [
+      0,
+      0,
+      1
+    ],
+    "focal_length_mm": 28,
+    "horizontal_aperture_mm": 36,
+    "vertical_aperture_mm": 27,
+    "resolution": [
+      1200,
+      900
+    ],
+    "clipping_m": [
+      0.01,
+      10
+    ],
+    "framing_bounds_m": [
+      [
+        -0.2,
+        -0.4,
+        -0.02
+      ],
+      [
+        0.65,
+        0.4,
+        0.9
+      ]
+    ],
+    "role": "observation only; never used for signed joint evidence"
+  },
+  "candidate_policy": {
+    "tracking_tolerance": [
+      60000,
+      40000,
+      45000,
+      75000,
+      40000,
+      25000,
+      2000,
+      2000
+    ],
+    "settling_steps": 120,
+    "position_margin_m": 0.003,
+    "linear_speed_max_m_s": 0.02,
+    "angular_speed_max_rad_s": 0.3,
+    "release_contact_max_n": 0.02,
+    "contact_observation_min_n": 0.01,
+    "minimum_lift_m": 0.025,
+    "minimum_transport_m": 0.07,
+    "minimum_contact_steps": 12,
+    "minimum_airborne_contact_steps": 12,
+    "semantics": "Provisional authored calibration thresholds, not a frozen campaign. Check every row; allow stationary axes and return paths. Retain failures without relabeling.",
+    "tracking_tolerance_basis": "Authored before any scene physics execution. Kd/Kp times peak target speed predicts velocity lag; add gravity and transient margin. See artifacts/scene-work/calibration/static-policy-revision.json. This is a candidate for calibration, not the frozen campaign policy."
+  },
+  "frozen_at_utc": "2026-10-30T22:15:11.265111+00:00",
+  "campaign_configuration": {
+    "repetitions": 10,
+    "run_order": [
+      "normal",
+      "missed_grasp",
+      "obstructed",
+      "incomplete"
+    ],
+    "ordering": "repetition 1 through 10; each scenario once in run_order; no replacement retries",
+    "operations_by_scenario": {
+      "normal": [
+        [
+          "R1",
+          "A"
+        ],
+        [
+          "B1",
+          "B"
+        ]
+      ],
+      "missed_grasp": [
+        [
+          "R1",
+          "A"
+        ]
+      ],
+      "obstructed": [
+        [
+          "R1",
+          "A"
+        ]
+      ],
+      "incomplete": [
+        [
+          "R1",
+          "A"
+        ]
+      ]
+    },
+    "interpolation": "cubic smoothstep 3u^2-2u^3, per-step nearest ties-even integer units",
+    "motion": {
+      "incomplete_verdict": "UNKNOWN",
+      "interpolation": "cubic smoothstep 3u^2-2u^3, per-step nearest ties-even integer units",
+      "minimum_endpoint_displacement": 0,
+      "outputs": [
+        "joint1",
+        "joint2",
+        "joint3",
+        "joint4",
+        "joint5",
+        "joint6",
+        "joint_left",
+        "joint_right"
+      ],
+      "physics_hz": 120,
+      "simulation_time_tolerance_ns": 5,
+      "tracking_tolerance": [
+        60000,
+        40000,
+        45000,
+        75000,
+        40000,
+        25000,
+        2000,
+        2000
+      ],
+      "units": [
+        "urad",
+        "urad",
+        "urad",
+        "urad",
+        "urad",
+        "urad",
+        "um",
+        "um"
+      ]
+    },
+    "objects": {
+      "angular_speed_max_rad_s": 0.3,
+      "linear_speed_max_m_s": 0.02,
+      "position_margin_m": 0.003,
+      "release_contact_max_n": 0.02,
+      "settling_intervals": 120,
+      "simulation_time_tolerance_ns": 5
+    },
+    "object_predicate": "All oriented-box corners inside destination inset; supported bottom; released from both fingers; speed limits at every row of final contiguous settling interval",
+    "persistence_predicate": "R1 whole box stays inside A on every independent observation throughout B1 operation and post-command hold; both final deliveries independently checked",
+    "normal_contact_requirements": {
+      "contact_observation_min_n": 0.01,
+      "minimum_lift_m": 0.025,
+      "minimum_transport_m": 0.07,
+      "minimum_contact_steps": 12,
+      "minimum_airborne_contact_steps": 12
+    },
+    "sampling": {
+      "physics_dt": [
+        1,
+        120
+      ],
+      "sample_every_steps": 1,
+      "include_initial": true,
+      "simulation_time_tolerance_ns": 5
+    },
+    "timing": {
+      "command_hold_steps": 240,
+      "max_duration_steps": 3600,
+      "max_step_ns": 2000000000,
+      "max_run_ns": 120000000000,
+      "challenge_ns": 5000000000
+    },
+    "post_stop_observation": {
+      "intervals": 120,
+      "stationary_window_intervals": 30,
+      "stationary_velocity_thresholds": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.001,
+        0.001
+      ]
+    },
+    "fault_schedule": {
+      "normal": {
+        "kind": "NONE",
+        "schedule": "Trusted setup before execution"
+      },
+      "missed_grasp": {
+        "kind": "OBJECT_RELOCATED_BEFORE_RUN",
+        "schedule": "Trusted setup before execution",
+        "object_id": "R1",
+        "position_m": [
+          0.42,
+          -0.25,
+          0.0605
+        ],
+        "timing": "trusted construction before first reset; unchanged planned trajectory"
+      },
+      "obstructed": {
+        "kind": "PHYSX_ARM_JOINT_LIMIT",
+        "schedule": "Trusted setup before execution",
+        "actuator": "joint1",
+        "half_width_rad": 1e-05,
+        "required_phases": [
+          "approach",
+          "transport"
+        ]
+      },
+      "incomplete": {
+        "kind": "NATIVE_ACQUISITION_INVALIDATION",
+        "schedule": "After step 121, before acquisition; initial plus first 120 readings retained",
+        "interrupt_after_captured_samples": 121,
+        "interrupted_physics_step": 121
+      }
+    },
+    "limits": "Existing PRC-B601-SIM-1 position/slew/effort/size/time limits unchanged; exact configuration retained per segment",
+    "calibration_note": "Physical inputs, program, motion/object thresholds unchanged from retained calibrated S6-04 examples. Legacy candidate_policy and trajectory status strings identify their original authoring history."
+  }
+}

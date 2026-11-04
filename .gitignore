@@ -1,0 +1,27 @@
+.venv/
+__pycache__/
+.pytest_cache/
+.cache/
+logs/
+*.log
+*.pyc
+.env
+*.pem
+*.key
+*.secret
+assets/vendor-cache/
+output/
+
+# Retained locally; publish an evidence bundle separately from source.
+/artifacts/scene-work/
+/artifacts/s5/runs/
+
+# Local agent instructions and private environment variants are not releases.
+.codex/
+.agents/
+AGENTS.md
+CLAUDE.md
+skills/
+SKILL.md
+.env.*
+!.env.example

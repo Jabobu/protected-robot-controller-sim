@@ -1,0 +1,395 @@
+{
+  "schema_version": 1,
+  "model": "Seeed reBot Arm B601-RS",
+  "stage": "S1",
+  "validation_status": "PREPARED_FOR_EXTERNAL_ISAAC_GATE",
+  "source": {
+    "repository": "https://github.com/Seeed-Projects/reBot-Isaacsim",
+    "commit": "158f87317fcaa35a7d1706ef364e324d3565939e",
+    "asset_path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/RS-rebot-dev-arm.usda",
+    "license": "MIT",
+    "license_path": "assets/vendor-cache/reBot-Isaacsim/LICENSE",
+    "notice_copy": "assets/notices/Seeed-reBot-Isaacsim-LICENSE"
+  },
+  "inspected_alternative": {
+    "repository": "https://github.com/Seeed-Projects/rebot-arm-dli-isaacsim",
+    "commit": "865d8b3def01ee9dc231d4dc54056f47b09323fa",
+    "selected": false,
+    "reason": "Larger flat asset; layered asset adds MDL/textures; neither has authored mechanical finger mimic; third-party notices qualify root MIT."
+  },
+  "runtime": {
+    "isaac_sim": "6.0.0",
+    "python": "3.12.13",
+    "physics_engine": "PhysX",
+    "device": "cpu",
+    "physics_dt_seconds": 0.008333333333333333,
+    "container_image_digest": "sha256:40006a3c6f14e0d796fb1fe388095e6ee83057b99b4c89dcbb5fee90df36f557",
+    "nvidia_base_image_digest": "sha256:68735a60b6c15c85e0dd0098570c6d2cc79e928f2d068ce2790aa43284ac165d"
+  },
+  "entrypoint": "assets/b601_rs.usda",
+  "robot_prim": "/B601",
+  "articulation_root": "/B601/Geometry/base_link",
+  "fixed_base_joint": "/B601/Physics/root_joint",
+  "fixed_joints": [
+    "root_joint",
+    "j_gripper_end"
+  ],
+  "meters_per_unit": 1,
+  "up_axis": "Z",
+  "expected_rigid_bodies": 10,
+  "expected_meshes_with_instance_proxies": 33,
+  "expected_colliders_with_instance_proxies": 10,
+  "self_collision_enabled": false,
+  "output_order": [
+    "joint1",
+    "joint2",
+    "joint3",
+    "joint4",
+    "joint5",
+    "joint6",
+    "joint_left",
+    "joint_right"
+  ],
+  "actuator_order": [
+    "joint1",
+    "joint2",
+    "joint3",
+    "joint4",
+    "joint5",
+    "joint6",
+    "gripper"
+  ],
+  "channels": [
+    {
+      "name": "joint1",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint1",
+      "body0": "/B601/Geometry/base_link",
+      "body1": "/B601/Geometry/base_link/link1",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -160.4281768798828,
+        160.4281768798828
+      ],
+      "position_limits": [
+        -2.7999998995257984,
+        2.7999998995257984
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 36.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 500.0,
+      "damping": 60.0,
+      "drive_enabled": true,
+      "actuator": "joint1",
+      "upstream_max_velocity_usd": 2864.7890625,
+      "upstream_max_effort": 36.0
+    },
+    {
+      "name": "joint2",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint2",
+      "body0": "/B601/Geometry/base_link/link1",
+      "body1": "/B601/Geometry/base_link/link1/link2",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -179.90875244140625,
+        0.0
+      ],
+      "position_limits": [
+        -3.140000083257926,
+        0.0
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 36.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 1500.0,
+      "damping": 96.0,
+      "drive_enabled": true,
+      "actuator": "joint2",
+      "upstream_max_velocity_usd": 2864.7890625,
+      "upstream_max_effort": 36.0
+    },
+    {
+      "name": "joint3",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint3",
+      "body0": "/B601/Geometry/base_link/link1/link2",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -179.90875244140625,
+        0.0
+      ],
+      "position_limits": [
+        -3.140000083257926,
+        0.0
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 36.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 1000.0,
+      "damping": 76.0,
+      "drive_enabled": true,
+      "actuator": "joint3",
+      "upstream_max_velocity_usd": 2864.7890625,
+      "upstream_max_effort": 36.0
+    },
+    {
+      "name": "joint4",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint4",
+      "body0": "/B601/Geometry/base_link/link1/link2/link3",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3/link4",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -102.5594482421875,
+        96.82986450195312
+      ],
+      "position_limits": [
+        -1.7900000508548826,
+        1.6899999498190612
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 14.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 150.0,
+      "damping": 18.0,
+      "drive_enabled": true,
+      "actuator": "joint4",
+      "upstream_max_velocity_usd": 2291.831298828125,
+      "upstream_max_effort": 14.0
+    },
+    {
+      "name": "joint5",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint5",
+      "body0": "/B601/Geometry/base_link/link1/link2/link3/link4",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3/link4/link5",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -89.95437622070312,
+        89.95437622070312
+      ],
+      "position_limits": [
+        -1.570000041628963,
+        1.570000041628963
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 14.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 80.0,
+      "damping": 10.0,
+      "drive_enabled": true,
+      "actuator": "joint5",
+      "upstream_max_velocity_usd": 2291.831298828125,
+      "upstream_max_effort": 14.0
+    },
+    {
+      "name": "joint6",
+      "role": "arm",
+      "joint_path": "/B601/Physics/joint6",
+      "body0": "/B601/Geometry/base_link/link1/link2/link3/link4/link5",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3/link4/link5/link6",
+      "joint_type": "PhysicsRevoluteJoint",
+      "axis": "Z",
+      "unit": "rad",
+      "direction": 1,
+      "positive_direction": "right-hand rotation about joint-frame +Z",
+      "usd_position_limits": [
+        -179.90875244140625,
+        179.90875244140625
+      ],
+      "position_limits": [
+        -3.140000083257926,
+        3.140000083257926
+      ],
+      "max_velocity": 0.5,
+      "max_effort": 14.0,
+      "effort_unit": "N*m",
+      "drive_type": "force",
+      "stiffness": 50.0,
+      "damping": 7.0,
+      "drive_enabled": true,
+      "actuator": "joint6",
+      "upstream_max_velocity_usd": 2291.831298828125,
+      "upstream_max_effort": 14.0
+    },
+    {
+      "name": "joint_left",
+      "role": "finger",
+      "joint_path": "/B601/Physics/joint_left",
+      "body0": "/B601/Geometry/base_link/link1/link2/link3/link4/link5/link6/gripper_end",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3/link4/link5/link6/gripper_end/gripper_left",
+      "joint_type": "PhysicsPrismaticJoint",
+      "axis": "Z",
+      "unit": "m",
+      "direction": 1,
+      "positive_direction": "outward travel along joint-frame +Z; left is gripper-frame -Y, right is +Y",
+      "usd_position_limits": [
+        0.0,
+        0.05000000074505806
+      ],
+      "position_limits": [
+        0.0,
+        0.05000000074505806
+      ],
+      "max_velocity": 0.04,
+      "max_effort": 12.0,
+      "effort_unit": "N",
+      "drive_type": "force",
+      "stiffness": 1200.0,
+      "damping": 30.0,
+      "drive_enabled": true,
+      "actuator": "gripper",
+      "upstream_max_velocity_usd": 0.24300000071525574,
+      "upstream_max_effort": 1904.0
+    },
+    {
+      "name": "joint_right",
+      "role": "finger",
+      "joint_path": "/B601/Physics/joint_right",
+      "body0": "/B601/Geometry/base_link/link1/link2/link3/link4/link5/link6/gripper_end",
+      "body1": "/B601/Geometry/base_link/link1/link2/link3/link4/link5/link6/gripper_end/gripper_right",
+      "joint_type": "PhysicsPrismaticJoint",
+      "axis": "Z",
+      "unit": "m",
+      "direction": 1,
+      "positive_direction": "outward travel along joint-frame +Z; left is gripper-frame -Y, right is +Y",
+      "usd_position_limits": [
+        0.0,
+        0.05000000074505806
+      ],
+      "position_limits": [
+        0.0,
+        0.05000000074505806
+      ],
+      "max_velocity": 0.04,
+      "max_effort": 0.0,
+      "effort_unit": "N",
+      "drive_type": "force",
+      "stiffness": 0.0,
+      "damping": 0.0,
+      "drive_enabled": false,
+      "actuator": "gripper",
+      "upstream_max_velocity_usd": 0.24300000071525574,
+      "upstream_max_effort": 1904.0
+    }
+  ],
+  "gripper_coupling": {
+    "driver": "joint_left",
+    "follower": "joint_right",
+    "schema": "PhysxMimicJointAPI:rotX",
+    "gearing": -1.0,
+    "offset": 0.0,
+    "reference_axis": "rotX",
+    "equation": "q_right + gearing * q_left + offset = 0",
+    "independent_actuators": 1,
+    "observed_outputs": 2,
+    "follower_drive_enabled": false,
+    "command_unit": "m",
+    "command_meaning": "one finger outward travel; total opening change is twice this value",
+    "authoring_note": "S2 repairs the upstream invalid Z mimic API instance to rotX; both prismatic physics:axis values remain Z. Single-DOF mimic axes are inferred by PhysX."
+  },
+  "limit_policy": "Simulation bounds only, not certified physical motor ratings. Arm gains/efforts retained; arm speeds reduced to 0.5 rad/s. Gripper leader 12 N, 1200 N/m, 30 N*s/m; both finger speeds 0.04 m/s. Follower is passive under the mimic constraint with its API instance corrected by the local overlay.",
+  "files": [
+    {
+      "path": "assets/b601_rs.usda",
+      "size_bytes": 3153,
+      "sha256": "950a197a4a3c5caf1f7d974a82d174c6ff33f5a79c8503069d5a4ed882094e43"
+    },
+    {
+      "path": "assets/notices/Seeed-reBot-Isaacsim-LICENSE",
+      "size_bytes": 1069,
+      "sha256": "3c46ce472bd9cd9c419bae897f4ced4ae73691c41fdd8eafa8a4b673725664e8"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/LICENSE",
+      "size_bytes": 1069,
+      "sha256": "3c46ce472bd9cd9c419bae897f4ced4ae73691c41fdd8eafa8a4b673725664e8"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/RS-rebot-dev-arm.usda",
+      "size_bytes": 7368,
+      "sha256": "05f6a56536c3eaaa18e6885ca25bb7459830c7868118b4798cbc19d4cf0eca91"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/Physics/mujoco.usda",
+      "size_bytes": 990,
+      "sha256": "07375ed46040d801ccfed1573487d419fc0210aefb70c45b55a13e2c468c7347"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_base.usd",
+      "size_bytes": 22760,
+      "sha256": "8c3032f13836e4fdd64d396e723700ea498c2ea226bdac3ab1ca066c98729555"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_meshes.usd",
+      "size_bytes": 19866757,
+      "sha256": "ce87268f1b5014e5e9ac5c56869c139e445af9b1a4517665490b7641c2dbdf20"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_physics.usd",
+      "size_bytes": 26872,
+      "sha256": "492cb67c57862ee433a755cc6c55870085d121988f10e7760f4d2565099b6bd7"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/instances.usda",
+      "size_bytes": 18699,
+      "sha256": "88207a5e3c834d6df80d4d89dc13088e4b537d52dca70356cb28d68a99f6dea9"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/materials.usda",
+      "size_bytes": 3814,
+      "sha256": "9aab2842d3adeef3c89aeb3e70770efad37cfdeaf2b01dad2b2620568d9bc2cf"
+    },
+    {
+      "path": "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/robot.usda",
+      "size_bytes": 5045,
+      "sha256": "4073334882178254d854e4f48bb0f786073ae6c60abe62a54de666daf4b8067e"
+    }
+  ],
+  "dependency_closure": {
+    "layers": [
+      "assets/b601_rs.usda",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/RS-rebot-dev-arm.usda",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/Physics/mujoco.usda",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_base.usd",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_meshes.usd",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/RS-rebot-dev-arm_physics.usd",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/instances.usda",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/materials.usda",
+      "assets/vendor-cache/reBot-Isaacsim/usd/RS-rebot-dev-arm/payloads/robot.usda"
+    ],
+    "external_assets": [],
+    "unresolved": [],
+    "network_required": false,
+    "includes_inactive_mujoco_variant": true,
+    "source_layer_bytes": 19952305
+  }
+}

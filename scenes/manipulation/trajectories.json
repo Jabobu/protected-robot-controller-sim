@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "profile_id": "B601-MANIPULATION-CALIBRATION-1",
+  "status": "STATIC_FK_CANDIDATE_PHYSICS_UNOBSERVED",
+  "interpolation": "cubic smoothstep 3u^2-2u^3, per-step nearest ties-even integer units",
+  "sample_hz": 120,
+  "initial_target": [
+    0,
+    -700000,
+    -1100000,
+    0,
+    0,
+    0,
+    20000
+  ],
+  "initial_tolerance": [
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    50000,
+    2000,
+    2000
+  ],
+  "hold_steps": 240,
+  "operations": [
+    {
+      "object_id": "R1",
+      "destination": "A",
+      "command_group": "one bounded signed command covers every phase; no command boundary under contact load",
+      "phases": [
+        {
+          "name": "approach",
+          "steps": 528,
+          "target": [
+            -150000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "descend",
+          "steps": 120,
+          "target": [
+            -150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "grasp",
+          "steps": 168,
+          "target": [
+            -150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "grasp_hold",
+          "steps": 60,
+          "target": [
+            -150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "lift",
+          "steps": 120,
+          "target": [
+            -150000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "transport",
+          "steps": 192,
+          "target": [
+            -550000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "lower",
+          "steps": 120,
+          "target": [
+            -550000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "release",
+          "steps": 168,
+          "target": [
+            -550000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "retreat",
+          "steps": 120,
+          "target": [
+            -550000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "home",
+          "steps": 528,
+          "target": [
+            0,
+            -700000,
+            -1100000,
+            0,
+            0,
+            0,
+            20000
+          ]
+        }
+      ]
+    },
+    {
+      "object_id": "B1",
+      "destination": "B",
+      "command_group": "one bounded signed command covers every phase; no command boundary under contact load",
+      "phases": [
+        {
+          "name": "approach",
+          "steps": 528,
+          "target": [
+            150000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "descend",
+          "steps": 120,
+          "target": [
+            150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "grasp",
+          "steps": 168,
+          "target": [
+            150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "grasp_hold",
+          "steps": 60,
+          "target": [
+            150000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "lift",
+          "steps": 120,
+          "target": [
+            150000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "transport",
+          "steps": 192,
+          "target": [
+            550000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "lower",
+          "steps": 120,
+          "target": [
+            550000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            13000
+          ]
+        },
+        {
+          "name": "release",
+          "steps": 168,
+          "target": [
+            550000,
+            -1748604,
+            -1345308,
+            1167500,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "retreat",
+          "steps": 120,
+          "target": [
+            550000,
+            -1756942,
+            -1606644,
+            1420498,
+            0,
+            0,
+            35000
+          ]
+        },
+        {
+          "name": "home",
+          "steps": 528,
+          "target": [
+            0,
+            -700000,
+            -1100000,
+            0,
+            0,
+            0,
+            20000
+          ]
+        }
+      ]
+    }
+  ]
+}

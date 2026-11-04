@@ -1,0 +1,71 @@
+{
+  "calibration_basis": [
+    {
+      "manifest": "artifacts/scene-work/calibration/normal-20261030T174518-16c7b8d95849/run.json",
+      "reason": "Retained normal calibration; unchanged candidate tracking/geometry/force thresholds",
+      "sha256": "869f801b3eae3999823d1da892f7c3dd341f2cea1691f8caab4f514d2c4028ad"
+    },
+    {
+      "manifest": "artifacts/scene-work/calibration/empty_grasp-20261030T174619-2cd517b6dd1b/run.json",
+      "reason": "Retained empty-close feasibility calibration; same tracking predicate",
+      "sha256": "f52cea3e35aaf029893041cb2c0f9eb83a2aed2df8ada524323a284bf485c6f5"
+    }
+  ],
+  "frozen_at_utc": "2026-10-30T18:20:10.820578+00:00",
+  "motion": {
+    "incomplete_verdict": "UNKNOWN",
+    "interpolation": "cubic smoothstep 3u^2-2u^3, per-step nearest ties-even integer units",
+    "minimum_endpoint_displacement": 0,
+    "outputs": [
+      "joint1",
+      "joint2",
+      "joint3",
+      "joint4",
+      "joint5",
+      "joint6",
+      "joint_left",
+      "joint_right"
+    ],
+    "physics_hz": 120,
+    "simulation_time_tolerance_ns": 5,
+    "tracking_tolerance": [
+      60000,
+      40000,
+      45000,
+      75000,
+      40000,
+      25000,
+      2000,
+      2000
+    ],
+    "units": [
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "urad",
+      "um",
+      "um"
+    ]
+  },
+  "notes": [
+    "No numeric tolerance widened from S6-01 candidate policy.",
+    "120 intervals require 121 observations: a full second, stricter than the prior 120-row diagnostic.",
+    "Object observations are unsigned; replay is not sensor authentication.",
+    "S6-05 updates only profile metadata binding/scope; motion and object predicates remain byte-equivalent JSON values."
+  ],
+  "objects": {
+    "angular_speed_max_rad_s": 0.3,
+    "linear_speed_max_m_s": 0.02,
+    "position_margin_m": 0.003,
+    "release_contact_max_n": 0.02,
+    "settling_intervals": 120,
+    "simulation_time_tolerance_ns": 5
+  },
+  "policy_id": "B601-SCENE-ASSESSMENT-1",
+  "profile_sha256": "efb49be1ff5fb23862730f5c877edafae5a46d991fb336d1923e93542944983f",
+  "schema_version": 1,
+  "scope": "S6-03 calibrated predicates retained unchanged for the authored S6-05 frozen campaign",
+  "trajectory_sha256": "c959b806c8f986a4b7bdbe5773c4dbecff1cf60187bedefe656960aefb2a4f6b"
+}
