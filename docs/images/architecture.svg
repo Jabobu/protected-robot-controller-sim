@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif">
+  <title>Protected Robot Controller architecture</title>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#57606a"/>
+    </marker>
+  </defs>
+
+  <rect x="0" y="0" width="1000" height="520" rx="12" fill="#ffffff"/>
+
+  <!-- Command authority -->
+  <rect x="20" y="70" width="200" height="150" rx="10" fill="#f6f8fa" stroke="#8c959f" stroke-width="1.5"/>
+  <text x="120" y="102" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2328">Command authority</text>
+  <text x="120" y="122" text-anchor="middle" font-size="12" fill="#57606a">test client or ROS 2 client</text>
+  <text x="120" y="156" text-anchor="middle" font-size="12.5" fill="#1f2328">holds authority private key</text>
+  <text x="120" y="176" text-anchor="middle" font-size="12.5" fill="#1f2328">signs bounded trajectories</text>
+  <text x="120" y="196" text-anchor="middle" font-size="12.5" fill="#1f2328">(COSE_Sign1, ES256)</text>
+
+  <!-- Protected controller -->
+  <rect x="340" y="30" width="300" height="270" rx="10" fill="#f3f8ff" stroke="#0969da" stroke-width="2"/>
+  <text x="490" y="60" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2328">Protected controller</text>
+  <text x="490" y="80" text-anchor="middle" font-size="12" fill="#57606a">PRC-B601-SIM-1 · no simulator imports</text>
+
+  <rect x="360" y="96" width="260" height="52" rx="7" fill="#ffffff" stroke="#54aeff"/>
+  <text x="490" y="117" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f2328">1 · Verify</text>
+  <text x="490" y="136" text-anchor="middle" font-size="12" fill="#57606a">signature, schema, freshness, limits</text>
+
+  <rect x="360" y="160" width="260" height="52" rx="7" fill="#ffffff" stroke="#54aeff"/>
+  <text x="490" y="181" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f2328">2 · Execute</text>
+  <text x="490" y="200" text-anchor="middle" font-size="12" fill="#57606a">capped drives, sample every physics step</text>
+
+  <rect x="360" y="224" width="260" height="52" rx="7" fill="#ffffff" stroke="#54aeff"/>
+  <text x="490" y="245" text-anchor="middle" font-size="12.5" font-weight="600" fill="#1f2328">3 · Sign evidence</text>
+  <text x="490" y="264" text-anchor="middle" font-size="12" fill="#57606a">measured trace, separate evidence key</text>
+
+  <path d="M490,148 V158" stroke="#54aeff" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M490,212 V222" stroke="#54aeff" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Simulation backend -->
+  <rect x="760" y="70" width="220" height="150" rx="10" fill="#fff8f0" stroke="#bc4c00" stroke-width="1.5"/>
+  <text x="870" y="102" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2328">Private sim backend</text>
+  <text x="870" y="122" text-anchor="middle" font-size="12" fill="#57606a">Isaac Sim 6.0 · PhysX</text>
+  <text x="870" y="156" text-anchor="middle" font-size="12.5" fill="#1f2328">B601 arm + gripper</text>
+  <text x="870" y="176" text-anchor="middle" font-size="12.5" fill="#1f2328">bounded physics drives</text>
+  <text x="870" y="196" text-anchor="middle" font-size="12.5" fill="#1f2328">1/120 s physics step</text>
+
+  <!-- Client <-> controller -->
+  <path d="M222,125 H336" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="280" y="116" text-anchor="middle" font-size="12" fill="#1f2328">HELLO / EXECUTE</text>
+  <path d="M338,185 H224" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="280" y="176" text-anchor="middle" font-size="12" fill="#1f2328">EVIDENCE /</text>
+  <text x="280" y="202" text-anchor="middle" font-size="12" fill="#1f2328">REJECTED</text>
+  <text x="280" y="238" text-anchor="middle" font-size="11" fill="#57606a">canonical CBOR bytes:</text>
+  <text x="280" y="253" text-anchor="middle" font-size="11" fill="#57606a">in-process handle()</text>
+  <text x="280" y="268" text-anchor="middle" font-size="11" fill="#57606a">or ROS 2 service</text>
+
+  <!-- Controller <-> backend -->
+  <path d="M642,125 H756" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="700" y="116" text-anchor="middle" font-size="12" fill="#1f2328">joint targets</text>
+  <path d="M758,185 H644" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="700" y="176" text-anchor="middle" font-size="12" fill="#1f2328">post-physics</text>
+  <text x="700" y="202" text-anchor="middle" font-size="12" fill="#1f2328">joint positions</text>
+
+  <!-- Offline checks -->
+  <rect x="200" y="360" width="280" height="86" rx="10" fill="#fbf7ff" stroke="#8250df" stroke-width="1.5"/>
+  <text x="340" y="390" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2328">Motion conformance</text>
+  <text x="340" y="411" text-anchor="middle" font-size="12" fill="#57606a">verifies evidence signature and</text>
+  <text x="340" y="428" text-anchor="middle" font-size="12" fill="#57606a">measured motion against the plan</text>
+
+  <rect x="520" y="360" width="280" height="86" rx="10" fill="#fbf7ff" stroke="#8250df" stroke-width="1.5"/>
+  <text x="660" y="390" text-anchor="middle" font-size="15" font-weight="600" fill="#1f2328">Object delivery</text>
+  <text x="660" y="411" text-anchor="middle" font-size="12" fill="#57606a">checks object poses against</text>
+  <text x="660" y="428" text-anchor="middle" font-size="12" fill="#57606a">target regions at the final hold</text>
+
+  <path d="M120,222 V403 H196" fill="none" stroke="#57606a" stroke-width="1.6" marker-end="url(#arrow)"/>
+  <text x="128" y="318" font-size="12" fill="#1f2328">retained signed</text>
+  <text x="128" y="334" font-size="12" fill="#1f2328">evidence</text>
+
+  <path d="M870,222 V403 H804" fill="none" stroke="#57606a" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#arrow)"/>
+  <text x="862" y="318" text-anchor="end" font-size="12" fill="#1f2328">object observations</text>
+  <text x="862" y="334" text-anchor="end" font-size="12" fill="#1f2328">(unsigned)</text>
+
+  <text x="500" y="478" text-anchor="middle" font-size="12" fill="#57606a">Offline checkers run without the simulator or private keys. The controller has no task-success field.</text>
+  <text x="500" y="498" text-anchor="middle" font-size="12" fill="#57606a">Trust assumption: the simulator and workstation are trusted. This is not physical sensor attestation.</text>
+</svg>

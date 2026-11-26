@@ -7,6 +7,13 @@ and workstation are trusted; this project does not attest physical sensors or
 protect against workstation root. Physical deployment requires separate hardware
 and safety validation.
 
+![The normal example after both deliveries: the B601 arm has moved the red object from R1 to A and the blue object from B1 to B](docs/images/scene-normal-delivered.png)
+
+*The `normal` example after both deliveries: red moved from R1 to A, blue from
+B1 to B. Frame rendered headlessly in Isaac Sim 6.0.*
+
+![Architecture: a command authority sends signed commands to the protected controller, which verifies them, drives the simulated B601 through a private Isaac Sim backend, and returns signed evidence of the measured joint positions. Offline tools check motion conformance from signed evidence and object delivery from unsigned simulator observations.](docs/images/architecture.svg)
+
 This project is available under the [MIT License](LICENSE). Third-party components
 retain their own licenses. The current source has not been deployed to the Jetson;
 earlier S6 experiments used different source and configuration.
